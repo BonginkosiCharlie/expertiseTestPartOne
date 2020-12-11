@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.expertiseTestPartOne.Models.Speed;
 import com.expertiseTestPartOne.Models.Temperature;
 
 
@@ -24,6 +25,20 @@ public class ConversionController {
 		temp.convertC2K();
 		System.out.println(temp);
 		return temp.toString();
+	}
+	
+	@PostMapping("/mtok")
+	public String convertMileToKilometer(@RequestBody Speed speed) {
+		speed.convertM2K();
+		System.out.println(speed);
+		return speed.toString();
+	}
+	
+	@PostMapping("/ktom")
+	public String convertKilometerToMile(@RequestBody Speed speed) {
+		speed.convertK2M();
+		System.out.println(speed);
+		return speed.toString();	
 	}
 
 }
